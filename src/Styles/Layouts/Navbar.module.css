@@ -1,10 +1,11 @@
 .navbarcomponent {
-  background-color: #0277bd;
+  background-color: #1565c0;
   align-items: center;
   justify-content: space-between;
   padding: 10px 10px;
   display: flex;
   flex-direction: row;
+  color: white;
 }
 .navbarcomponent div img {
   padding: 10px 10px;
@@ -31,5 +32,5 @@
 
 .navbarlink {
   text-decoration: none;
-  color: black;
+  color: white;
 }

@@ -1,0 +1,25 @@
+.homecomponent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  height: 462.9px;
+  background-color: #b3e5fc;
+}
+
+.homecomponenttext {
+  flex: 1;
+  padding: 15px;
+  font-size: 40px;
+  color: #6d6d6d;
+}
+
+.homecomponentimg {
+  flex: 1;
+  text-align: center;
+  padding: 30px;
+}
+
+.homecomponentimg img {
+  max-width: 90%;
+}
