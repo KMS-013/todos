@@ -1,0 +1,35 @@
+.navbarcomponent {
+  background-color: #0277bd;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: row;
+}
+.navbarcomponent div img {
+  padding: 10px 10px;
+  height: 75px;
+}
+
+.navbarcomponent div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.navbarlist {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  gap: 24px;
+  cursor: pointer;
+  padding: 12px 24px;
+  text-decoration: none;
+}
+.navbarlink:hover {
+  font-weight: 600;
+}
+
+.navbarlink {
+  text-decoration: none;
+  color: black;
+}
