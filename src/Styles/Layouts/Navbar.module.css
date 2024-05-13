@@ -26,11 +26,13 @@
   padding: 12px 24px;
   text-decoration: none;
 }
-.navbarlink:hover {
+.activePage {
   font-weight: 600;
+  text-decoration: none;
+  color: black;
 }
 
-.navbarlink {
+.inAactivePage {
   text-decoration: none;
   color: white;
 }

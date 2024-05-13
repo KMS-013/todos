@@ -1,6 +1,6 @@
 import React from "react";
 import Styles from "../Styles/Layouts/Navbar.module.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -13,19 +13,37 @@ function Navbar() {
         <div>
           <ul className={Styles.navbarlist}>
             <li>
-              <Link to="/" className={Styles.navbarlink}>
+              <NavLink
+                to="/"
+                className={({ isActive }) => {
+                  console.log("isActive", isActive);
+                  return isActive ? Styles.activePage : Styles.inAactivePage;
+                }}
+              >
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/Dashbord" className={Styles.navbarlink}>
+              <NavLink
+                to="/Dashbord"
+                className={({ isActive }) => {
+                  console.log("isActive", isActive);
+                  return isActive ? Styles.activePage : Styles.inAactivePage;
+                }}
+              >
                 Dashbord
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/todo" className={Styles.navbarlink}>
+              <NavLink
+                to="/todo"
+                className={({ isActive }) => {
+                  console.log("isActive", isActive);
+                  return isActive ? Styles.activePage : Styles.inAactivePage;
+                }}
+              >
                 Todo
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>
