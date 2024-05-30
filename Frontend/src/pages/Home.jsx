@@ -1,14 +1,14 @@
 import React from "react";
-import Styles from "../Styles/Pages/Home.module.css";
+import styles from "../styles/home/home.module.css";
 
 function Home() {
   return (
-    <div className={Styles.homecomponent}>
-      <div className={Styles.homecomponenttext}>
+    <div className={styles.homecomponent}>
+      <div className={styles.homecomponenttext}>
         “Subtracting from your list of priorities is as important as adding to
         it.”
       </div>
-      <div className={Styles.homecomponentimg}>
+      <div className={styles.homecomponentimg}>
         <img src="/images/homeimg.svg" alt="" />
       </div>
     </div>

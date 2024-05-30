@@ -1,54 +1,38 @@
 import React from "react";
-import Styles from "../Styles/Layouts/Navbar.module.css";
-import { NavLink } from "react-router-dom";
+import styles from "../styles/layouts/navbar.module.css";
+import { Link } from "react-router-dom";
+import { Button } from "flowbite-react";
+import { useAuth } from "../providers/AuthProvider";
 
 function Navbar() {
+  const { logout, user } = useAuth();
   return (
-    <>
-      <nav className={Styles.navbarcomponent}>
-        <div>
-          <img src="/images/logo.svg" alt="logo" />
-          <h1>Todos</h1>
-        </div>
-        <div>
-          <ul className={Styles.navbarlist}>
-            <li>
-              <NavLink
-                to="/"
-                className={({ isActive }) => {
-                  console.log("isActive", isActive);
-                  return isActive ? Styles.activePage : Styles.inAactivePage;
-                }}
-              >
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/Dashbord"
-                className={({ isActive }) => {
-                  console.log("isActive", isActive);
-                  return isActive ? Styles.activePage : Styles.inAactivePage;
-                }}
-              >
-                Dashbord
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/todo"
-                className={({ isActive }) => {
-                  console.log("isActive", isActive);
-                  return isActive ? Styles.activePage : Styles.inAactivePage;
-                }}
-              >
-                Todo
-              </NavLink>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </>
+    <nav className={styles.navbar}>
+      <div className={styles.logoContainer}>
+        <img src="/images/logo.svg" alt="" className={styles.logo} />
+        <h1>Todos</h1>
+      </div>
+      <ul className={styles.links}>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        {user ? (
+          <li>
+            <Link to="/admin/todos">Dashboard</Link>
+          </li>
+        ) : (
+          <li>
+            <Link to="/login">Login/Register</Link>
+          </li>
+        )}
+
+        {user && (
+          <li>
+            <Button onClick={logout}>Logout</Button>
+          </li>
+        )}
+      </ul>
+    </nav>
   );
 }
 

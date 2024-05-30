@@ -1,13 +1,11 @@
 import React from "react";
-import Styles from "../Styles/Layouts/Footer.module.css";
+import styles from "../styles/layouts/footer.module.css";
 
 function Footer() {
   return (
-    <>
-      <div className={Styles.footercontainer}>
-        <p>&copy; Copyright 2024. All rights Reserved.</p>
-      </div>
-    </>
+    <footer className={styles.footer}>
+      <p>&copy;2024 Todos. All rights reserved.</p>
+    </footer>
   );
 }
 

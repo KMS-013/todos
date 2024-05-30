@@ -1,22 +1,36 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Todo from "./pages/Todo";
-import Layout from "./Layouts/Layout";
+import Layout from "./layouts/Layout";
 import Home from "./pages/Home";
-import Dashbord from "./pages/Dashbord";
+import Todos from "./pages/Todos";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import AuthProvider from "./providers/AuthProvider";
+import AuthGuard from "./guards/AuthGuard";
+import AdminLayout from "./layouts/AdminLayout";
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
+    <BrowserRouter>
+      <AuthProvider>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="Todo" element={<Todo />} />
-            <Route path="Dashbord" element={<Dashbord />} />
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+            <Route path="admin" element={<AdminLayout />}>
+              <Route
+                path="todos"
+                element={
+                  <AuthGuard>
+                    <Todos />
+                  </AuthGuard>
+                }
+              />
+            </Route>
           </Route>
         </Routes>
-      </BrowserRouter>
-    </>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
 

@@ -1,6 +1,6 @@
-.footercontainer {
-  background-color: black;
+.footer {
+  padding: 24px 32px;
+  background-color: #212121;
   color: white;
-  padding: 12px 24px;
-  align-items: center;
+  text-align: center;
 }
