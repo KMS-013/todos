@@ -47,17 +47,11 @@ function TaskListItem({ task, tasks, setTasks }) {
         <p className={styles.task}>{task.task}</p>
         <p>{task.dueDate}</p>
         <PrioritySelect selected={task.priority} />
-        <button
-          className={`${styles.actionBtn} ${styles.actionEdit}`}
-          onClick={handleEdit}
-        >
+        <button onClick={handleEdit}>
           <FontAwesomeIcon icon={faEdit} />
         </button>
-        <button
-          className={`${styles.actionBtn} ${styles.actionDelete}`}
-          onClick={handleDelete}
-        >
-          <FontAwesomeIcon icon={faTrash} />
+        <button onClick={handleDelete}>
+          <FontAwesomeIcon className="text-[#f44336]" icon={faTrash} />
         </button>
       </li>
       {isOpen && (

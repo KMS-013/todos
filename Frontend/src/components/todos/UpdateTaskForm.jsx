@@ -1,4 +1,4 @@
-import { Button, Datepicker, TextInput } from "flowbite-react";
+import { Datepicker, TextInput } from "flowbite-react";
 import React, { useState } from "react";
 import styles from "../../styles/todos/updateTask.module.css";
 import PrioritySelect from "../common/PrioritySelect";
@@ -45,9 +45,12 @@ function UpdateTaskForm({ task, toggleModal, tasks, setTasks }) {
         onSelectedDateChanged={handleChange}
       />
       <PrioritySelect selected={formState.priority} onChange={handleChange} />
-      <Button pill gradientDuoTone="greenToBlue" type="submit">
+      <button
+        className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
+        type="submit"
+      >
         Submit
-      </Button>
+      </button>
     </form>
   );
 }

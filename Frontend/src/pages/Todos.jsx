@@ -3,7 +3,6 @@ import AddTask from "../components/todos/AddTask";
 import TasksList from "../components/todos/TasksList";
 import styles from "../styles/todos/todos.module.css";
 import { getAllTasks } from "../services/apiServices";
-import Modal from "../components/common/Modal";
 
 function Todos() {
   const [tasks, setTasks] = useState(null);
@@ -15,9 +14,12 @@ function Todos() {
   }, []);
 
   return (
-    <div className={styles.containerMain}>
-      <AddTask tasks={tasks} setTasks={setTasks} />
-      <TasksList tasks={tasks} setTasks={setTasks} />
+    <div className="p-8">
+      <h2 className="mb-4 text-2xl font-bold">Todos</h2>
+      <div className={styles.containerMain}>
+        <AddTask tasks={tasks} setTasks={setTasks} />
+        <TasksList tasks={tasks} setTasks={setTasks} />
+      </div>
     </div>
   );
 }

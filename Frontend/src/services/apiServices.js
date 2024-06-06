@@ -1,6 +1,6 @@
 import { fetchHelper } from "../helpers/fetchHelper";
 
-const BASE_URL = "http://localhost:5000";
+export const BASE_URL = "http://localhost:5000";
 
 // Tasks
 
@@ -37,3 +37,19 @@ export function logoutUser() {
 }
 
 // End Auth
+
+// Dashboard
+
+export function getTasksStats() {
+  return fetchHelper(`${BASE_URL}/dashboard/stats`, true);
+}
+
+// End Dashboard
+
+// User
+
+export function updateUser(id, body) {
+  return fetchHelper(`${BASE_URL}/users/${id}`, true, "PATCH", body);
+}
+
+// End User

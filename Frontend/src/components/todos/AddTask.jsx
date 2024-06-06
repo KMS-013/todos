@@ -1,14 +1,11 @@
-import { Button, TextInput } from "flowbite-react";
+import { TextInput } from "flowbite-react";
 import React from "react";
-import { HiPlus } from "react-icons/hi";
 import { addTaskToState } from "../../helpers/tasksHelper";
 import { addTask } from "../../services/apiServices";
 import styles from "../../styles/todos/addTask.module.css";
 import PrioritySelect from "../common/PrioritySelect";
 
 function AddTask({ tasks, setTasks }) {
-  // console.log("user", user);
-
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -49,14 +46,13 @@ function AddTask({ tasks, setTasks }) {
         className="[&>div>input]:!rounded-full"
       />
       <PrioritySelect className="shrink-0 [&>div>select]:!rounded-full" />
-      <Button
+      <button
+        className="text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900 rounded-full"
         pill
         type="submit"
-        className="shrink-0"
-        gradientDuoTone="greenToBlue"
       >
-        <HiPlus className="h-5 w-5 mr-2" /> Add Task
-      </Button>
+        + AddTask
+      </button>
     </form>
   );
 }

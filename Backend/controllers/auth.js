@@ -1,7 +1,7 @@
 const { generateToken, getUserObject } = require("../helpers/authHelper");
 const User = require("../models/User");
 const Token = require("../models/Token");
-const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 
 const register = async (req, res) => {
   try {
@@ -13,13 +13,15 @@ const register = async (req, res) => {
       objUser.role = "admin";
     }
 
-    const user = await User.create(objUser);
+    const salt = bcrypt.genSaltSync(10);
+    const hashedPassword = bcrypt.hashSync(req.body.password.toString(), salt);
+
+    const user = await User.create({ ...objUser, password: hashedPassword });
 
     const token = generateToken(user);
 
     res.status(200).json({
       success: true,
-      data: getUserObject(user),
       token,
     });
   } catch (error) {
@@ -39,7 +41,10 @@ const login = async (req, res) => {
         .json({ success: false, msg: "No such email exists!" });
     }
 
-    const isPasswordCorrect = existingUser.password === password.toString();
+    const isPasswordCorrect = bcrypt.compareSync(
+      password.toString(),
+      existingUser.password
+    );
 
     if (!isPasswordCorrect) {
       return res
@@ -51,7 +56,6 @@ const login = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      data: getUserObject(existingUser),
       token,
     });
   } catch (error) {

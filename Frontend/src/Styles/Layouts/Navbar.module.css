@@ -1,24 +1,19 @@
 .navbar {
   padding: 24px 32px;
-  background-color: #e1f5fe;
+  background-color: #b2b262;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .logoContainer {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 2px;
 }
 
 .logo {
   height: 32px;
-}
-
-.logoContainer h1 {
-  /* margin: 0px; */
 }
 
 .links {

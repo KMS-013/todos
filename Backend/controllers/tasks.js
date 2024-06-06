@@ -17,12 +17,6 @@ const getSingleTask = (req, res) => {
 const addTask = async (req, res) => {
   try {
     const { task, priority, dueDate } = req.body;
-    // const task = new Task();
-    // task.task = req.body.task;
-    // task.isCompleted = req.body.isCompleted;
-    // task.priority = req.body.priority;
-    // task.dueDate = req.body.dueDate;
-    // await task.save();
     console.log("req.user", req.user);
     const result = await Task.create({
       task,
@@ -42,7 +36,6 @@ const updateTask = async (req, res) => {
     const { task, isCompleted, priority, dueDate } = req.body;
     const { id } = req.params;
 
-    // const existingTask = await Task.findById(id);
     const existingTask = await Task.findOne({ _id: id });
 
     if (!existingTask) {
@@ -51,18 +44,6 @@ const updateTask = async (req, res) => {
         .json({ success: false, msg: "No such task exists!" });
     }
 
-    // const updatedTask = await Task.findByIdAndUpdate(
-    //   id,
-    //   {
-    //     task,
-    //     isCompleted,
-    //     priority,
-    //     dueDate,
-    //   },
-    //   {
-    //     returnOriginal: false,
-    //   }
-    // );
     const updatedTask = await Task.findOneAndUpdate(
       { _id: id },
       {
@@ -86,7 +67,6 @@ const deleteTask = async (req, res) => {
   try {
     const { id } = req.params;
 
-    // const existingTask = await Task.findById(id);
     const existingTask = await Task.findOne({ _id: id });
 
     if (!existingTask) {
@@ -94,8 +74,6 @@ const deleteTask = async (req, res) => {
         .status(404)
         .json({ success: false, msg: "No such task exists!" });
     }
-
-    // const result = await Task.findByIdAndDelete(id);
     const deletedTask = await Task.findOneAndDelete({ _id: id });
     res.status(200).json({ success: true, data: null });
   } catch (error) {
